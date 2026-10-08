@@ -54,7 +54,7 @@
             display: flex;
             justify-content: flex-end;
             gap: 12px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .btn {
@@ -82,7 +82,28 @@
             text-align: center;
             border-bottom: 2px dashed var(--border-color);
             padding-bottom: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
+        }
+
+        .biodata-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary-accent);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .biodata-title::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 2px;
+            background: var(--gold-accent);
+            margin: 4px auto 0;
         }
 
         .photo-container {
@@ -268,6 +289,7 @@
 
         <!-- Profile Header -->
         <div class="profile-header">
+            <div class="biodata-title">BIODATA</div>
             <div class="photo-container" onclick="openModal()">
                 <img src="sahil_photo.jpg" alt="Sahil Chudasama Photo" id="userPhoto" onerror="this.src='https://via.placeholder.com/130x160?text=Sahil'">
             </div>
@@ -361,11 +383,11 @@
             <div class="contact-card">
                 <div class="contact-box">
                     <span class="info-label">Self</span>
-                    <a href="tel:+919099185132" class="phone-link">9099185132</a>
+                    <a href="tel:+919099185132" class="phone-link">+91-9099185132</a>
                 </div>
                 <div class="contact-box">
                     <span class="info-label">Father</span>
-                    <a href="tel:+919824744204" class="phone-link">9824744204</a>
+                    <a href="tel:+919824744204" class="phone-link">+91-9824744204</a>
                 </div>
             </div>
         </div>
