@@ -315,7 +315,7 @@
             <div class="biodata-title">BIODATA</div>
             <div class="photo-container" onclick="openModal()" title="Click to view full image">
                 <img src="sahil_photo.jpg" alt="Sahil Chudasama Photo" id="userPhoto" onerror="this.src='https://via.placeholder.com/130x160?text=Sahil'">
-                <div class="zoom-badge">🔍 Zoom</div>
+                <div class="zoom-badge" id="zoomBadge">🔍 Zoom</div>
             </div>
             <h1>Sahil Chudasama</h1>
             <p>Data Analyst | ML Engineer | B.Com</p>
@@ -445,8 +445,11 @@
         function downloadPDF() {
             const element = document.getElementById('biodataContent');
             const actionButtons = document.getElementById('actionButtons');
+            const zoomBadge = document.getElementById('zoomBadge');
 
+            // Download ke waqt buttons aur zoom badge dono hide honge
             actionButtons.style.display = 'none';
+            if (zoomBadge) zoomBadge.style.display = 'none';
 
             const opt = {
                 margin:       [8, 8, 8, 8],
@@ -458,7 +461,9 @@
             };
 
             html2pdf().set(opt).from(element).save().then(() => {
+                // PDF download ke baad wapas show honge
                 actionButtons.style.display = 'flex';
+                if (zoomBadge) zoomBadge.style.display = 'flex';
             });
         }
     </script>
