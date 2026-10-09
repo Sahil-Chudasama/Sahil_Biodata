@@ -274,8 +274,8 @@
             cursor: pointer;
         }
 
-        /* Mobile Screen Specific Optimizations */
-        @media (max-width: 650px) {
+        /* STRICT MOBILE RESPONSIVE FIX */
+        @media screen and (max-width: 768px) {
             body {
                 padding: 10px 5px;
             }
@@ -286,8 +286,12 @@
             }
 
             .grid-layout {
-                grid-template-columns: 1fr;
-                gap: 10px;
+                grid-template-columns: 1fr !important; /* Forces Single Column on Mobile */
+                gap: 12px;
+            }
+
+            .info-item {
+                grid-column: span 1 !important;
             }
 
             .profile-header h1 {
@@ -348,11 +352,11 @@
         <div class="section">
             <h2 class="section-title">Education & Career</h2>
             <div class="grid-layout">
-                <div class="info-item" style="grid-column: span 2;">
+                <div class="info-item">
                     <span class="info-label">Highest Qualification</span>
                     <span class="info-value">B.Com, Data Analyst, ML Engineer</span>
                 </div>
-                <div class="info-item" style="grid-column: span 2;">
+                <div class="info-item">
                     <span class="info-label">University</span>
                     <span class="info-value">Veer Narmad South Gujarat University (VNSGU), Surat</span>
                 </div>
@@ -379,7 +383,7 @@
                     <span class="info-label">Mother's Occupation</span>
                     <span class="info-value">Homemaker</span>
                 </div>
-                <div class="info-item" style="grid-column: span 2;">
+                <div class="info-item">
                     <span class="info-label">Siblings</span>
                     <span class="info-value">1 Younger Sister</span>
                 </div>
@@ -447,7 +451,6 @@
             const actionButtons = document.getElementById('actionButtons');
             const zoomBadge = document.getElementById('zoomBadge');
 
-            // Download ke waqt buttons aur zoom badge dono hide honge
             actionButtons.style.display = 'none';
             if (zoomBadge) zoomBadge.style.display = 'none';
 
@@ -461,7 +464,6 @@
             };
 
             html2pdf().set(opt).from(element).save().then(() => {
-                // PDF download ke baad wapas show honge
                 actionButtons.style.display = 'flex';
                 if (zoomBadge) zoomBadge.style.display = 'flex';
             });
