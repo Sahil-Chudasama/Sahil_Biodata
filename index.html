@@ -274,6 +274,22 @@
             cursor: pointer;
         }
 
+        /* Print and PDF Optimization */
+        @media print {
+            body {
+                padding: 0;
+                background-color: #ffffff;
+            }
+            .container {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+            }
+            #actionButtons, .zoom-badge {
+                display: none !important;
+            }
+        }
+
         /* STRICT MOBILE RESPONSIVE FIX */
         @media screen and (max-width: 768px) {
             body {
@@ -286,7 +302,7 @@
             }
 
             .grid-layout {
-                grid-template-columns: 1fr !important; /* Forces Single Column on Mobile */
+                grid-template-columns: 1fr !important;
                 gap: 12px;
             }
 
