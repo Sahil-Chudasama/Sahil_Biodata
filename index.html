@@ -35,7 +35,7 @@
             background-color: var(--bg-color);
             color: var(--text-dark);
             line-height: 1.5;
-            padding: 30px 15px;
+            padding: 20px 10px;
         }
 
         .container {
@@ -45,36 +45,8 @@
             border-radius: 16px;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow);
-            padding: 30px 35px;
+            padding: 30px 25px 20px;
             position: relative;
-        }
-
-        /* Action Buttons Top Bar */
-        .top-actions {
-            display: flex;
-            justify-content: flex-end;
-            gap: 12px;
-            margin-bottom: 10px;
-        }
-
-        .btn {
-            background-color: #f7f1e5;
-            color: var(--primary-accent);
-            border: 1px solid var(--gold-accent);
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn:hover {
-            background-color: var(--primary-accent);
-            color: #ffffff;
         }
 
         /* Profile Header */
@@ -117,6 +89,7 @@
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
             cursor: pointer;
             transition: transform 0.2s ease;
+            position: relative;
         }
 
         .photo-container:hover {
@@ -129,16 +102,39 @@
             object-fit: cover;
         }
 
+        /* Zoom Icon Badge */
+        .zoom-badge {
+            position: absolute;
+            bottom: 6px;
+            right: 6px;
+            background: rgba(0, 0, 0, 0.65);
+            color: #ffffff;
+            font-size: 11px;
+            padding: 3px 6px;
+            border-radius: 20px;
+            backdrop-filter: blur(2px);
+            pointer-events: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .photo-container:hover .zoom-badge {
+            background: var(--primary-accent);
+            transform: scale(1.05);
+        }
+
         .profile-header h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 34px;
+            font-size: 32px;
             color: var(--primary-accent);
             letter-spacing: 0.5px;
             margin-bottom: 2px;
         }
 
         .profile-header p {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--gold-accent);
             font-weight: 600;
             letter-spacing: 0.5px;
@@ -146,25 +142,25 @@
 
         /* Section Styling */
         .section {
-            margin-bottom: 22px;
+            margin-bottom: 20px;
             page-break-inside: avoid;
         }
 
         .section-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
+            font-size: 20px;
             color: var(--primary-accent);
             border-bottom: 2px solid var(--gold-accent);
             display: inline-block;
             padding-bottom: 2px;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
         .grid-layout {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px 25px;
+            gap: 12px 20px;
         }
 
         .info-item {
@@ -174,7 +170,7 @@
         }
 
         .info-label {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.8px;
@@ -183,7 +179,7 @@
         }
 
         .info-value {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             color: var(--text-dark);
         }
@@ -192,7 +188,7 @@
             background-color: #fdfaf5;
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 15px 20px;
+            padding: 12px 15px;
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
@@ -212,9 +208,37 @@
             color: var(--primary-accent);
             text-decoration: none;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 15px;
             margin-top: 2px;
             display: inline-block;
+        }
+
+        /* Bottom Action Buttons Bar */
+        .bottom-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            padding-top: 10px;
+        }
+
+        .btn {
+            background-color: var(--primary-accent);
+            color: #ffffff;
+            border: 1px solid var(--primary-accent);
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(158, 42, 43, 0.2);
+        }
+
+        .btn:hover {
+            background-color: #802021;
         }
 
         /* Lightbox Modal Styling */
@@ -250,31 +274,34 @@
             cursor: pointer;
         }
 
-        /* Responsive Design */
+        /* Mobile Screen Specific Optimizations */
         @media (max-width: 650px) {
+            body {
+                padding: 10px 5px;
+            }
+
             .container {
-                padding: 20px 18px;
+                padding: 20px 15px;
+                border-radius: 12px;
             }
 
             .grid-layout {
                 grid-template-columns: 1fr;
+                gap: 10px;
             }
 
             .profile-header h1 {
-                font-size: 28px;
+                font-size: 26px;
             }
 
             .contact-card {
                 flex-direction: column;
                 text-align: left;
+                padding: 12px;
             }
 
             .contact-box {
                 text-align: left;
-            }
-
-            .top-actions {
-                justify-content: center;
             }
         }
     </style>
@@ -282,16 +309,13 @@
 <body>
 
     <div class="container" id="biodataContent">
-        <!-- Action Buttons -->
-        <div class="top-actions" id="actionButtons">
-            <button class="btn" onclick="downloadPDF()">📥 Download PDF</button>
-        </div>
 
         <!-- Profile Header -->
         <div class="profile-header">
             <div class="biodata-title">BIODATA</div>
-            <div class="photo-container" onclick="openModal()">
+            <div class="photo-container" onclick="openModal()" title="Click to view full image">
                 <img src="sahil_photo.jpg" alt="Sahil Chudasama Photo" id="userPhoto" onerror="this.src='https://via.placeholder.com/130x160?text=Sahil'">
+                <div class="zoom-badge">🔍 Zoom</div>
             </div>
             <h1>Sahil Chudasama</h1>
             <p>Data Analyst | ML Engineer | B.Com</p>
@@ -390,6 +414,11 @@
                     <a href="tel:+919824744204" class="phone-link">+91-9824744204</a>
                 </div>
             </div>
+        </div>
+
+        <!-- Bottom Action Button -->
+        <div class="bottom-actions" id="actionButtons">
+            <button class="btn" onclick="downloadPDF()">📥 Download PDF</button>
         </div>
     </div>
 
